@@ -1,24 +1,22 @@
-import React from 'react';
-import chatLogo from './assets/chat_bubble_figma.png';
+import chatLogo from './assets/button1.png';
+import irisLogo from './assets/iris_logo_white.png'
 
 export const ChatButton = () => {
 
   const buttonStyle = {
     position: 'fixed',      
-    bottom: '10px',         
-    right: 'px',
-    padding: '5px 10px',
-    borderRadius: '5px',
+    bottom: '0.5%',         
+    right: '0.2%',
     cursor: 'pointer',
-    width: '50px',
+    width: '6%',
+    minWidth: '78px',
+    borderRadius: '50%',
     transition: 'all 0.3s ease',
   };
 
   return (
     <>
-      <p>
         <img src={chatLogo} alt="ChatButton" style={ buttonStyle } />
-      </p>
     </>
   );
 };
@@ -27,21 +25,26 @@ export const Head1 = () => {
   const headerStyle = {
     backgroundColor: '#000000',
     width: '100%',
-    height: '9%', // Adjusted height to make it better
+    height: '9%',
     position: 'fixed',
     top: '0',
     left: '0',
     color: 'white',
-    margin: '0', // Remove any default margin
-    padding: '0', // Remove any default padding
-    display: 'flex', // Use flex for proper layout inside
-    alignItems: 'center', // Vertically center the text
+    margin: '0',
+    padding: '0',
+    display: 'flex',
+    alignItems: 'center',
   };
   const headerTextStyle = {
     fontSize: '300%',
   };
+  const irisLogoStyle = {
+    width: '6%',
+    padding: '10px',
+  }
   return(
     <div style={headerStyle}>
+      <img src={irisLogo} alt="ChatButton" style={irisLogoStyle}/>
       <h1 style={headerTextStyle}>Iris</h1>
     </div>
   );
@@ -49,13 +52,13 @@ export const Head1 = () => {
 
 export const ChatBox = () => {
   const rectangleStyle = {
-    width: '29%',
-    height: '68%',
+    width: '40%',
+    minWidth: '350px',
+    height: '80%',
     backgroundColor: '#F5F5F5',
     position: 'fixed',
     bottom: '9%',         
     right: '6%',
-    padding: '20px 30px',
     border: '1px solid #D3D3D3',
     borderRadius: '15px',
     borderBottomRightRadius: '0px',
@@ -68,13 +71,14 @@ export const ChatBox = () => {
   );
 }
 
-export const HeaderChat = () => {
+const HeaderChat = () => {
   const headerChatStyle={
-    width: '33.8%',
-    height: '8.6%',
+    width: '40.1%',
+    minWidth: '352px',
+    height: '6.1%',
     backgroundColor: '#000000',
     position: 'fixed',
-    bottom: '78%',
+    bottom: '83.2%',
     right: '6%',
     borderRadius: '15px', 
     borderBottomRightRadius: '0px',
