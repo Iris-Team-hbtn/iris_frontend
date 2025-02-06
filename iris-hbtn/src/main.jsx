@@ -6,7 +6,9 @@ import './styles/style.css'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Head1/>
-    <ChatBox/>
-    <ChatButton/>
+    <div style={{height: '2000px'}}>
+      <ChatBox/>
+      <ChatButton/>
+    </div>
   </StrictMode>,
 )

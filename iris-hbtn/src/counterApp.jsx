@@ -2,14 +2,13 @@ import chatLogo from './assets/button1.png';
 import irisLogo from './assets/iris_logo_white.png'
 
 export const ChatButton = () => {
-
   const buttonStyle = {
     position: 'fixed',      
     bottom: '0.5%',         
     right: '0.2%',
     cursor: 'pointer',
     width: '6%',
-    minWidth: '78px',
+    minWidth: '70px',
     borderRadius: '50%',
     transition: 'all 0.3s ease',
   };
@@ -25,7 +24,7 @@ export const Head1 = () => {
   const headerStyle = {
     backgroundColor: '#000000',
     width: '100%',
-    height: '9%',
+    height: '50px',
     position: 'fixed',
     top: '0',
     left: '0',
@@ -40,7 +39,10 @@ export const Head1 = () => {
   };
   const irisLogoStyle = {
     width: '6%',
+    minWidth: '60px',
     padding: '10px',
+    display: 'flex',
+    alignItems: 'center',
   }
   return(
     <div style={headerStyle}>
@@ -54,10 +56,11 @@ export const ChatBox = () => {
   const rectangleStyle = {
     width: '40%',
     minWidth: '350px',
+    maxwidth: '100%', 
     height: '80%',
     backgroundColor: '#F5F5F5',
     position: 'fixed',
-    bottom: '9%',         
+    bottom: '9%',
     right: '6%',
     border: '1px solid #D3D3D3',
     borderRadius: '15px',
@@ -67,8 +70,29 @@ export const ChatBox = () => {
   return(
           <div style={rectangleStyle}>
             <HeaderChat/>
+            <ChatBubble/>
           </div>
   );
+}
+
+const ChatBubble = () => {
+  const ChatBubbleStyle = {
+    width: '467px',
+    height: '10px',
+    backgroundColor: 'yellow',
+    position: 'fixed',
+    right: '6%',
+    bottom: '17%',
+    margin: '10px',
+    borderRadius: '15px',
+    borderBottomRightRadius: '0px',
+    padding: '10px',
+    display: 'flex',
+    alignItems: 'center',
+  }
+  return(
+    <div style={ChatBubbleStyle}>content</div>
+  )
 }
 
 const HeaderChat = () => {
@@ -80,7 +104,7 @@ const HeaderChat = () => {
     position: 'fixed',
     bottom: '83.2%',
     right: '6%',
-    borderRadius: '15px', 
+    borderRadius: '15px',
     borderBottomRightRadius: '0px',
     borderBottomLeftRadius: '0px',
   }
