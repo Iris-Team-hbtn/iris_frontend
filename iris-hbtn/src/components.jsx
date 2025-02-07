@@ -1,23 +1,53 @@
+import { useState } from 'react';
 import chatLogo from './assets/button1.png';
-import irisLogo from './assets/iris_logo_white.png'
+import irisLogo from './assets/iris_logo_white.png';
+import XLogo from './assets/X.png';
 
 export const ChatButton = () => {
   const buttonStyle = {
     position: 'fixed',      
-    bottom: '0.5%',         
-    right: '0.2%',
+    bottom: '1%',
+    right: '1%',
     cursor: 'pointer',
-    width: '6%',
-    minWidth: '70px',
-    borderRadius: '50%',
+    width: '4%',
+    minWidth: '65px',
     transition: 'all 0.3s ease',
   };
 
-  return (
+    const [isChatOpen, SetChatBoxOn] =useState(false);
+  
+    const ToggleChatBox = () => {
+      SetChatBoxOn((prev) => !prev)
+    };
+      return (
     <>
-        <img src={chatLogo} alt="ChatButton" style={ buttonStyle } />
+        <img src={chatLogo} onClick={ToggleChatBox} alt="ChatButton" style={ buttonStyle } />
+        {isChatOpen && <ChatBox/>}
     </>
   );
+};
+
+const ExitButton = () => {
+  const XStyle = {
+    position: 'fixed',      
+    bottom: '83.5%',
+    right: '5.2%',
+    cursor: 'pointer',
+    width: '2.5%',
+    minWidth: '42px',
+    transition: 'all 0.3s ease',
+  };
+  const [isChatOff, SetChatBoxOff] =useState(false);
+
+  const ExitChatBox = () => {
+    SetChatBoxOff((prev) => !prev)
+    };
+  return(
+    <>
+      <img src={XLogo} onClick={ExitChatBox} alt="ChatButton" style={ XStyle } />
+      {isChatOff && <ChatBox/>}
+    </>
+  )
 };
 
 export const Head1 = () => {
@@ -39,7 +69,7 @@ export const Head1 = () => {
   };
   const irisLogoStyle = {
     width: '6%',
-    minWidth: '60px',
+    minWidth: '80px',
     padding: '10px',
     display: 'flex',
     alignItems: 'center',
@@ -61,7 +91,7 @@ export const ChatBox = () => {
     backgroundColor: '#F5F5F5',
     position: 'fixed',
     bottom: '9%',
-    right: '6%',
+    right: '5%',
     border: '1px solid #D3D3D3',
     borderRadius: '15px',
     borderBottomRightRadius: '0px',
@@ -70,6 +100,7 @@ export const ChatBox = () => {
   return(
           <div style={rectangleStyle}>
             <HeaderChat/>
+            <ExitButton/>
             <ChatBubble/>
           </div>
   );
@@ -77,12 +108,13 @@ export const ChatBox = () => {
 
 const ChatBubble = () => {
   const ChatBubbleStyle = {
-    width: '467px',
+    width: '38%',
+    minWidth: '317px',
     height: '10px',
-    backgroundColor: 'yellow',
+    backgroundColor: 'grey',
     position: 'fixed',
-    right: '6%',
-    bottom: '17%',
+    right: '4.7%',
+    bottom: '8.7%',
     margin: '10px',
     borderRadius: '15px',
     borderBottomRightRadius: '0px',
@@ -91,7 +123,7 @@ const ChatBubble = () => {
     alignItems: 'center',
   }
   return(
-    <div style={ChatBubbleStyle}>content</div>
+    <div style={ChatBubbleStyle}>Escribe algo...</div>
   )
 }
 
@@ -103,7 +135,7 @@ const HeaderChat = () => {
     backgroundColor: '#000000',
     position: 'fixed',
     bottom: '83.2%',
-    right: '6%',
+    right: '5%',
     borderRadius: '15px',
     borderBottomRightRadius: '0px',
     borderBottomLeftRadius: '0px',
