@@ -1,13 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { ChatButton, Head1} from './components'
+import { Header } from './components/Header'
+import { Chat } from './components/Chat'
 import './styles/style.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Head1/>
-    <div style={{height: '2000px'}}>
-      <ChatButton/>
-    </div>
+    <Header />
+    <Chat />
   </StrictMode>,
 )
