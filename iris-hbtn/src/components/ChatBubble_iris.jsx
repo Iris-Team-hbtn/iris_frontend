@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 export const ChatBubble_iris = ({ message }) => {
   const ChatBubble_irisStyle= {
-        width: '95%',
+        width: '94%',
         minWidth: '317px',
         height: '10px',
         backgroundColor: '#badf76',
@@ -12,6 +12,8 @@ export const ChatBubble_iris = ({ message }) => {
         padding: '10px',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'flex-start',
+        border: '1px solid rgb(37, 37, 37)',
   }
     return (
     <div style= {ChatBubble_irisStyle} >Iris: {message}</div>

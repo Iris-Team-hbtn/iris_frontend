@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 
 export const ChatBubble_input = ({ addmessage }) => {
     const ChatBubbleStyle = {
-      width: '95%',
+      width: '98%',
       minWidth: '317px',
       height: '30px',
       backgroundColor: 'lightgrey',
@@ -11,6 +11,7 @@ export const ChatBubble_input = ({ addmessage }) => {
       borderBottomRightRadius: '0px',
       display: 'flex',
       alignItems: 'center',
+      margin: '3px'
     }
 
     const [input_text, setInput_Text] = useState('')
@@ -26,7 +27,7 @@ export const ChatBubble_input = ({ addmessage }) => {
     }
 
     return (
-      <form onSubmit={onSubmit}>
+      <form style={{width: '99%'}}onSubmit={onSubmit}>
         <input 
         style={ChatBubbleStyle} 
         type="text"

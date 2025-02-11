@@ -8,24 +8,23 @@ export const ChatContainer = ({ msg_list }) => {
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+        alignItems: "flex-start",
         justifyContent: "flex-start",
-        fontSize: "13px",
+        fontSize: "17px",
         color: "black",
-        padding: "10px",
+        padding: "0",
+        overflow: 'scroll',
     };
 
     return (
         <div style={ContainerStyle}>
-            <ol>
-                {msg_list.map((msg, index) =>
-                    msg.user === "Iris" ? (
-                        <ChatBubble_iris key={index} message={msg.message} />
-                    ) : (
-                        <ChatBubble_user key={index} message={msg.message} />
-                    )
-                )}
-            </ol>
+            {msg_list.map((msg, index) =>
+                msg.user === "Iris" ? (
+                    <ChatBubble_iris key={index} message={msg.message} />
+                ) : (
+                    <ChatBubble_user key={index} message={msg.message} />
+                )
+            )}
         </div>
     );
 };

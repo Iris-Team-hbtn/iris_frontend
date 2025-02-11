@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 export const ChatBubble_user = ({ message }) => {
   const ChatBubble_userStyle= {
-        width: '95%',
+        width: '92%',
         minWidth: '317px',
         height: '10px',
         backgroundColor: '#dbd48f',
@@ -12,6 +12,8 @@ export const ChatBubble_user = ({ message }) => {
         padding: '10px',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'flex-start',
+        border: '1px solid rgb(37, 37, 37)',
   }
     return (
     <div style= {ChatBubble_userStyle} >Tú: {message}</div>
