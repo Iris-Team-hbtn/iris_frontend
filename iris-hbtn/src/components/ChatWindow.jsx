@@ -41,27 +41,28 @@ export const ChatWindow = ({ toggleChat, display }) => {
       }
       try{
         const response = await fetch(API_URL, OptsPost);
-        const data = response.json()
+        const data = await response.json()
         return data
         } 
     catch (error) {
       console.error(error)
 }
   }
-const onAddHumanMessage = (val) => {
+const onAddHumanMessage = async (val) => {
 
     const newmessage = {
       user: 'Human',
       message: val
       }
   setMessages([...messages, newmessage])
-  let irisresponse = fetchIris(val)
+
+  let irisresponse = await fetchIris(val)
   const irismessage = {
     user: 'Iris',
-    message: irisresponse.data
+    message: irisresponse.response
   }
-  console.log(irismessage)
-  setMessages([...messages, irismessage])
+
+  setMessages([...messages, newmessage, irismessage])
   }
   return (
     <div style={rectangleStyle}>
