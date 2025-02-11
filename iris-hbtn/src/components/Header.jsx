@@ -18,8 +18,8 @@ export const Header = () => {
     fontSize: '300%',
   };
   const irisLogoStyle = {
-    width: '6%',
-    minWidth: '80px',
+    width: '5%',
+    minWidth: '70px',
     padding: '10px',
     display: 'flex',
     alignItems: 'center',

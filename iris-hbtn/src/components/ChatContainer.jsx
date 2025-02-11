@@ -13,7 +13,9 @@ export const ChatContainer = ({ msg_list }) => {
         fontSize: "17px",
         color: "black",
         padding: "0",
-        overflow: 'scroll',
+        overflowY: 'scroll',
+        overflowX: 'hidden',
+        scrollBehaviour: 'smooth',
     };
 
     return (
@@ -22,7 +24,7 @@ export const ChatContainer = ({ msg_list }) => {
                 msg.user === "Iris" ? (
                     <ChatBubble_iris key={index} message={msg.message} />
                 ) : (
-                    <ChatBubble_user key={index} message={msg.message} />
+                    <div key={index} style={{width:'100%', display: 'flex', justifyContent: 'space-between'}}><div style={{width:'40%'}}></div><ChatBubble_user message={msg.message} /></div>
                 )
             )}
         </div>

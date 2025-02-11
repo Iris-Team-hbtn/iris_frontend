@@ -3,8 +3,7 @@ import propTypes from 'prop-types'
 
 export const ChatBubble_input = ({ addmessage }) => {
     const ChatBubbleStyle = {
-      width: '98%',
-      minWidth: '317px',
+      minWidth: '97%',
       height: '30px',
       backgroundColor: 'lightgrey',
       borderRadius: '15px',
@@ -18,7 +17,7 @@ export const ChatBubble_input = ({ addmessage }) => {
     
     const onSubmit = (event) => {
       event.preventDefault()
-      addmessage(input_text)
+      if (input_text != ''){addmessage(input_text)}
       setInput_Text('')
     }
 
