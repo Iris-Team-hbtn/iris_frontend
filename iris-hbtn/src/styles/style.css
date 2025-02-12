@@ -1,15 +1,37 @@
 
 body, html{
     background-color: #5d65d8;
-    color: black;
+    color: white;
     padding: 0;
     margin: 0;
     height: 100%;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
 }
 h1{
     color: white;
     font-size: 5vw;
     padding: 0;
     margin: 0;
+}
+/* Style the scrollbar itself */
+::-webkit-scrollbar {
+    width: 10px; /* Width of the vertical scrollbar */
+    height: 10px; /* Height of the horizontal scrollbar */
+}
+
+/* Style the scrollbar track (the part the thumb slides within) */
+::-webkit-scrollbar-track {
+    background: #5d5d5d; /* Light gray track */
+    border-radius: 0px; /* Rounded corners for the track */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+    background: #3b3b3b; /* Dark blue thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+/* Style the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(49, 49, 49); /* Darker thumb when hovering */
 }

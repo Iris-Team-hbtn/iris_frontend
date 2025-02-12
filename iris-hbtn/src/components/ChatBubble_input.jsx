@@ -3,14 +3,16 @@ import propTypes from 'prop-types'
 
 export const ChatBubble_input = ({ addmessage }) => {
     const ChatBubbleStyle = {
-      minWidth: '97%',
+      width: '95%',
+      minWidth: '320px',
       height: '30px',
       backgroundColor: 'lightgrey',
       borderRadius: '15px',
-      borderBottomRightRadius: '0px',
       display: 'flex',
       alignItems: 'center',
-      margin: '3px'
+      margin: '5px',
+      border: '1px solid rgb(37, 37, 37)',
+      paddingLeft: '10px',
     }
 
     const [input_text, setInput_Text] = useState('')
