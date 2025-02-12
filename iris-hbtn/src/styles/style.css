@@ -28,7 +28,7 @@ h1{
 /* Style the scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
     background: #3b3b3b; /* Dark blue thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
+    border-radius: 0px; /* Rounded corners for the thumb */
 }
 
 /* Style the scrollbar thumb on hover */
