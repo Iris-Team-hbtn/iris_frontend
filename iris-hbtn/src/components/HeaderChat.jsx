@@ -6,7 +6,7 @@ export const HeaderChat = ({toggleChat}) => {
     width: '100%',
     minWidth: '352px',
     height: '6.1%',
-    backgroundColor: '#000000',
+    backgroundColor: 'rgb(40, 97, 57)',
     borderRadius: '15px',
     borderBottomRightRadius: '0px',
     borderBottomLeftRadius: '0px',

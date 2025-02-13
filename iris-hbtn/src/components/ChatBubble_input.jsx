@@ -6,12 +6,12 @@ export const ChatBubble_input = ({ addmessage }) => {
       width: '95%',
       minWidth: '320px',
       height: '30px',
-      backgroundColor: 'lightgrey',
+      backgroundColor: '#FFFFFF',
       borderRadius: '15px',
       display: 'flex',
-      alignItems: 'center',
+      alignItems: 'center', 
       margin: '5px',
-      border: '1px solid rgb(37, 37, 37)',
+      border: '1px solid rgb(160, 160, 160)',
       paddingLeft: '10px',
     }
 
@@ -33,6 +33,7 @@ export const ChatBubble_input = ({ addmessage }) => {
         style={ChatBubbleStyle} 
         type="text"
         value={input_text}
+        placeholder='Escribe algo...'
         onChange={onInputChange}/>
       </form>
     )

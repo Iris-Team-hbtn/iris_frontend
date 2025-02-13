@@ -1,6 +1,6 @@
 
 body, html{
-    background-color: #5d65d8;
+    background-color: #e8e8e8;
     color: white;
     padding: 0;
     margin: 0;
@@ -21,17 +21,17 @@ h1{
 
 /* Style the scrollbar track (the part the thumb slides within) */
 ::-webkit-scrollbar-track {
-    background: #5d5d5d; /* Light gray track */
+    background: #c6c6c6; /* Light gray track */
     border-radius: 0px; /* Rounded corners for the track */
 }
 
 /* Style the scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
-    background: #3b3b3b; /* Dark blue thumb */
+    background: rgb(141, 190, 156); /* Dark blue thumb */
     border-radius: 0px; /* Rounded corners for the thumb */
 }
 
 /* Style the scrollbar thumb on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(49, 49, 49); /* Darker thumb when hovering */
+    background: rgb(74, 154, 98); /* Darker thumb when hovering */
 }

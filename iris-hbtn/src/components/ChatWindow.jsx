@@ -13,7 +13,7 @@ export const ChatWindow = ({ toggleChat, display }) => {
     minWidth: '350px',
     maxwidth: '90%',
     height: '80%',
-    backgroundColor: '#5d5d5d',
+    backgroundColor: 'white',
     position: 'fixed',
     bottom: '9%',
     right: '5%',
@@ -64,6 +64,7 @@ const onAddHumanMessage = async (val) => {
   }
 
   setMessages([...messages, newmessage, irismessage])
+  console.log(irismessage)
   }
   return (
     <div style={rectangleStyle}>

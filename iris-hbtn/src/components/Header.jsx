@@ -2,7 +2,8 @@ import irisLogo from '../assets/iris_logo_white.png';
 
 export const Header = () => {
   const headerStyle = {
-    backgroundColor: '#000000',
+    backgroundColor: 'rgb(0, 0, 0)',
+    opacity: '0.8',
     width: '100%',
     height: '50px',
     position: 'fixed',

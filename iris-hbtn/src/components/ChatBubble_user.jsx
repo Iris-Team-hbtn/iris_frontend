@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 export const ChatBubble_user = ({ message }) => {
   const ChatBubble_userStyle= {
         maxWidth: '92%',
-        color: 'black',
-        backgroundColor: '#768bff',
+        color: 'white',
+        backgroundColor: 'rgb(74, 154, 98)',
         margin: '10px',
         borderRadius: '15px',
         borderBottomRightRadius: '0px',
@@ -12,13 +12,13 @@ export const ChatBubble_user = ({ message }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        border: '1px solid rgb(37, 37, 37)',
+        border: '1px solid rgb(160, 160, 160)',
         wordWrap: 'break-word',
         lineHeight: '1',
         wordBreak: 'break-word',
   }
     return (
-    <div style= {ChatBubble_userStyle} >Tú: {message}</div>
+    <div style= {ChatBubble_userStyle} >{message}</div>
   )
 }
 
