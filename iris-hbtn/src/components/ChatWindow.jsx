@@ -17,7 +17,7 @@ export const ChatWindow = ({ toggleChat, display }) => {
     position: 'fixed',
     bottom: '9%',
     right: '5%',
-    border: '1px solid rgb(58, 58, 58)',
+    border: '1px solid rgb(155, 154, 154)',
     boxShadow: '5px 5px 15px rgba(0, 0, 0, 0.7)',
     borderRadius: '15px',
     borderBottomRightRadius: '0px',

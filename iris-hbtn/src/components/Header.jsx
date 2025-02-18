@@ -1,9 +1,10 @@
 import irisLogo from '../assets/iris_logo_white.png';
+import { AgendateButtonHeader } from './AgendateButtonHeader';
 
 export const Header = () => {
   const headerStyle = {
-    backgroundColor: 'rgb(0, 0, 0)',
-    opacity: '0.8',
+    backgroundColor: '#1f3685',
+    opacity: '0.9',
     width: '100%',
     height: '50px',
     position: 'fixed',
@@ -25,10 +26,11 @@ export const Header = () => {
     display: 'flex',
     alignItems: 'center',
   }
-  return(
+  return (
     <div style={headerStyle}>
-      <img src={irisLogo} alt="ChatButton" style={irisLogoStyle}/>
+      <img src={irisLogo} alt="ChatButton" style={irisLogoStyle} />
       <h1 style={headerTextStyle}>Iris</h1>
+      <AgendateButtonHeader />
     </div>
   );
 };

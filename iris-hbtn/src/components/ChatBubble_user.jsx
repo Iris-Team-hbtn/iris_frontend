@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 export const ChatBubble_user = ({ message }) => {
   const ChatBubble_userStyle= {
         maxWidth: '92%',
-        color: 'white',
-        backgroundColor: 'rgb(74, 154, 98)',
+        color: 'black',
+        backgroundColor: '#becef1',
         margin: '10px',
         borderRadius: '15px',
         borderBottomRightRadius: '0px',

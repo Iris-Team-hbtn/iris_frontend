@@ -27,11 +27,63 @@ h1{
 
 /* Style the scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
-    background: rgb(141, 190, 156); /* Dark blue thumb */
+    background: #dfe9ff; /* Dark blue thumb */
     border-radius: 0px; /* Rounded corners for the thumb */
 }
 
 /* Style the scrollbar thumb on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(74, 154, 98); /* Darker thumb when hovering */
+    background: #58a2cc; /* Darker thumb when hovering */
+}
+
+.fc-timegrid-slot {
+    height: 50px !important; /* Adjust this value based on your needs */
+}
+
+/* Container for the calendar */
+.calendar-container {
+  margin: 20px;
+}
+
+/* FullCalendar container background */
+.fc {
+  background-color: white; /* White background for the calendar */
+  color: black; /* Black text for the calendar */
+  border-radius: 8px;
+}
+
+/* Customizing the header (e.g., month name, navigation buttons) */
+.fc-header-toolbar {
+  background-color: #1f3685; /* Dark header for the toolbar */
+  color: white;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Default style for each day grid box */
+.fc-daygrid-day {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect on each day grid box */
+.fc-daygrid-day:hover {
+  background-color: rgba(0, 123, 255, 0.2) !important; /* Light blue background on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect to make the box appear elevated */
+  cursor: pointer; /* Change cursor to pointer to indicate it’s clickable */
+}
+.fc-daygrid-day-number {
+  color: black; /* Dark text for day numbers */
+}
+
+/* Change the background and text color for the current day */
+.fc-day-today {
+  background-color: #f3f7ff !important; /* Change the background to yellow */
+  color: black !important; /* Change the text color to black */
+}
+
+/* Change the background color of the event box */
+.fc-event {
+  background-color: #3498db !important; /* Blue background */
+  color: white !important; /* White text */
+  border-radius: 8px; /* Rounded corners for events */
+  padding: 5px 5px; /* Some padding inside the event */
 }
