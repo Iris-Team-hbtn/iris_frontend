@@ -37,7 +37,7 @@ h1{
 }
 
 .fc-timegrid-slot {
-    height: 50px !important; /* Adjust this value based on your needs */
+    height: 50px !important;
 }
 
 /* Container for the calendar */
@@ -47,37 +47,37 @@ h1{
 
 /* FullCalendar container background */
 .fc {
-  background-color: white; /* White background for the calendar */
-  color: black; /* Black text for the calendar */
+  background-color: white;
+  color: black;
   border-radius: 8px;
 }
 
 /* Customizing the header (e.g., month name, navigation buttons) */
 .fc-header-toolbar {
-  background-color: #1f3685; /* Dark header for the toolbar */
+  background-color: #1f3685;
   color: white;
   border-radius: 8px 8px 0 0;
 }
 
-/* Default style for each day grid box */
+.fc-daygrid-day-number {
+  color: black;
+}
+
+/* Apply hover effect on day grid cells */
 .fc-daygrid-day {
   transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
 }
 
-/* Hover effect on each day grid box */
 .fc-daygrid-day:hover {
-  background-color: rgba(0, 123, 255, 0.2) !important; /* Light blue background on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect to make the box appear elevated */
-  cursor: pointer; /* Change cursor to pointer to indicate it’s clickable */
-}
-.fc-daygrid-day-number {
-  color: black; /* Dark text for day numbers */
+  background-color: rgba(0, 123, 255, 0.2) !important;
+  cursor: pointer !important; 
+  box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5); 
 }
 
 /* Change the background and text color for the current day */
 .fc-day-today {
-  background-color: #f3f7ff !important; /* Change the background to yellow */
-  color: black !important; /* Change the text color to black */
+  background-color: #f3f7ff !important;
+  color: black !important;
 }
 
 /* Change the background color of the event box */
@@ -86,4 +86,11 @@ h1{
   color: white !important; /* White text */
   border-radius: 8px; /* Rounded corners for events */
   padding: 5px 5px; /* Some padding inside the event */
+}
+/* Hover effect on events */
+.fc-event:hover {
+  background-color: #2980b9 !important; /* Darker blue background on hover */
+  box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5); /* Optional: Add a shadow effect */
+  transform: scale(1.05); /* Optional: Slight scale effect to enlarge the event */
+  cursor: pointer !important; 
 }
