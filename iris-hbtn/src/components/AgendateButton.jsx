@@ -1,4 +1,4 @@
-export const AgendateButton = () => {
+export const AgendateButton = ({toggleCalendar}) => {
     const AgendateStyle = {
         backgroundColor: '#1f3685',
         color: 'white',
@@ -18,14 +18,15 @@ export const AgendateButton = () => {
     }
 
     const AgendateStyleHover = {
-        backgroundColor: 'rgba(0, 0, 0, 0.55)',
+        boxShadow: 'inset 0 -4px 20px rgba(255, 255, 255, 0.93)',
     }
 
     return (
         <button
             style={AgendateStyle} 
-            onMouseEnter={(e) => e.target.style.backgroundColor = AgendateStyleHover.backgroundColor} 
-            onMouseLeave={(e) => e.target.style.backgroundColor = AgendateStyle.backgroundColor}
+            onMouseEnter={(e) => e.target.style.boxShadow = AgendateStyleHover.boxShadow} 
+            onMouseLeave={(e) => e.target.style.boxShadow = AgendateStyle.boxShadow}
+            onClick={toggleCalendar}
         >
             Agendate!
         </button>

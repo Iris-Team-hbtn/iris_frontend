@@ -1,7 +1,7 @@
 import irisLogo from '../assets/iris_logo_white.png';
 import { AgendateButtonHeader } from './AgendateButtonHeader';
 
-export const Header = () => {
+export const Header = ({toggleCalendar}) => {
   const headerStyle = {
     backgroundColor: '#1f3685',
     opacity: '0.9',
@@ -30,7 +30,7 @@ export const Header = () => {
     <div style={headerStyle}>
       <img src={irisLogo} alt="ChatButton" style={irisLogoStyle} />
       <h1 style={headerTextStyle}>Iris</h1>
-      <AgendateButtonHeader />
+      <AgendateButtonHeader toggleCalendar={toggleCalendar} />
     </div>
   );
 };

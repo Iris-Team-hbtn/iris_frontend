@@ -1,6 +1,6 @@
 import Calendar from "./Calendar";
 
-export const CalendarDiv = () => {
+export const CalendarDiv = ({ isOpen }) => {
 
     const calendarDivStyle = {
         backgroundColor: 'rgb(247, 247, 247)',
@@ -19,8 +19,9 @@ export const CalendarDiv = () => {
     };
 
     return (
+        isOpen &&(
         <div style={calendarDivStyle}>
             <Calendar/>
         </div>
-    );
+    ));
 };

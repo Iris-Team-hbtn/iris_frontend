@@ -11,11 +11,18 @@ export const ChatButton = ({toggleChat}) => {
         minWidth: '50px',
         borderRadius: '50%',
         transition: 'all 0.3s ease',
-        boxShadow: '5px 5px 15px rgba(0, 0, 0, 0.7)',
+        boxShadow: '5px 5px 20px rgba(0, 0, 0, 0.7)',
     };
+    const hoverStyle = {
+        boxShadow: '20px 20px 20px rgba(0, 0, 0, 0.7)',
+    }
     return (
         <>
-            <img src={chatLogo} onClick={toggleChat} alt="ChatButton" style={buttonStyle} />
+            <img src={chatLogo} alt="ChatButton" style={buttonStyle} 
+            onClick={toggleChat}
+            onMouseEnter={(e) => e.target.style.boxShadow = hoverStyle.boxShadow}
+            onMouseLeave={(e) => e.target.style.boxShadow = buttonStyle.boxShadow}
+            />
         </>
     );
 };

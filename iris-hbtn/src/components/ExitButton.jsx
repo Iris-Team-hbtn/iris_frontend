@@ -12,7 +12,7 @@ export const ExitButton = ({toggleChat}) => {
     boxShadow: 'inset 0 -4px 10px rgba(255, 255, 255, 0)'
   };
   const hover = {
-    boxShadow: 'inset 0 -4px 10px rgba(255, 255, 255, 0.93)',
+    boxShadow: 'inset 0 -4px 20px rgba(255, 255, 255, 0.93)',
   }
   return (
     <>

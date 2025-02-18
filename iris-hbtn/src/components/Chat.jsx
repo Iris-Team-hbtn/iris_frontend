@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { ChatButton } from './ChatButton';
 import { ChatWindow } from './ChatWindow';
 
-export const Chat = () => {
+export const Chat = ({toggleCalendar}) => {
   const [displayState, setDisplayState] = useState('none')
 
   const toggleChat = () => {
@@ -14,12 +14,8 @@ export const Chat = () => {
   }
   return (
     <>
-        <ChatWindow toggleChat={toggleChat} display={displayState} />
+        <ChatWindow toggleCalendar={toggleCalendar}toggleChat={toggleChat} display={displayState} />
         <ChatButton toggleChat={toggleChat} />
     </>
   )
 }
-
-// Button mande informacion a Chat
-// Chat con esa informacion actualice el estado
-// Y con el estado cambiando, cambie la prop de Window

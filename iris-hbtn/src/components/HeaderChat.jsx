@@ -2,7 +2,7 @@ import { ExitButton } from "./ExitButton"
 import propTypes from 'prop-types'
 import { AgendateButton } from "./AgendateButton"
 
-export const HeaderChat = ({toggleChat}) => {
+export const HeaderChat = ({ toggleCalendar, toggleChat }) => {
   const headerChatStyle = {
     width: '100%',
     minWidth: '352px',
@@ -18,12 +18,12 @@ export const HeaderChat = ({toggleChat}) => {
 
   return (
     <div style={headerChatStyle}>
-      <AgendateButton/>
-      <ExitButton toggleChat={toggleChat}/>
+      <AgendateButton toggleCalendar={toggleCalendar} />
+      <ExitButton toggleChat={toggleChat} />
     </div>
   )
 }
-  
-HeaderChat.propTypes = { 
-  toggleChat : propTypes.func.isRequired
+
+HeaderChat.propTypes = {
+  toggleChat: propTypes.func.isRequired
 }

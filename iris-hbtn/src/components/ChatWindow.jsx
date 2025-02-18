@@ -4,7 +4,7 @@ import { ChatContainer } from './ChatContainer';
 import { useState } from 'react';
 import propTypes from 'prop-types';
 
-export const ChatWindow = ({ toggleChat, display }) => {
+export const ChatWindow = ({ toggleCalendar, toggleChat, display }) => {
   const rectangleStyle = {
     display: display,
     flexDirection: 'column',
@@ -68,7 +68,7 @@ const onAddHumanMessage = async (val) => {
   }
   return (
     <div style={rectangleStyle}>
-      <HeaderChat toggleChat={toggleChat} />
+      <HeaderChat toggleCalendar={toggleCalendar} toggleChat={toggleChat} />
       <ChatContainer msg_list={messages} />
       <ChatBubble_input addmessage={onAddHumanMessage} />
     </div>

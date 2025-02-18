@@ -1,4 +1,4 @@
-export const AgendateButtonHeader = () => {
+export const AgendateButtonHeader = ({toggleCalendar}) => {
     const AgendateStyle = {
         backgroundColor: '#1f3685',
         color: 'white',
@@ -12,27 +12,25 @@ export const AgendateButtonHeader = () => {
         display: 'inline-block',
         textAlign: 'center',
         padding: '12px',
+        borderRadius: '30px',
         borderLeft: '1px solid rgb(160, 160, 160)',
-        borderRight: '1px solid rgb(160, 160, 160)'
+        borderRight: '1px solid rgb(160, 160, 160)',
+        boxShadow: 'inset 0 -4px 10px rgba(255, 255, 255, 0.3)',
     }
 
     const AgendateStyleHover = {
-        backgroundColor: 'rgba(0, 0, 0, 0.55)',
-    }
-
-    const AgendateStyleDown = {
-        backgroundColor: 'white',
+        boxShadow: 'inset 0 -4px 10px rgba(255, 255, 255, 0.3)',
     }
 
     return (
-        <button
-            style={AgendateStyle} 
-            onMouseEnter={(e) => e.target.style.backgroundColor = AgendateStyleHover.backgroundColor} 
-            onMouseLeave={(e) => e.target.style.backgroundColor = AgendateStyle.backgroundColor}
-            onMouseDown={(e) => e.target.style.backgroundColor = AgendateStyleDown.backgroundColor}
-            onMouseUp={(e) => e.target.style.backgroundColor = AgendateStyleHover.backgroundColor} 
-        >
-            Agendate!
-        </button>
+        <>
+            <button
+                style={AgendateStyle} 
+                onMouseEnter={(e) => e.target.style.boxShadow = AgendateStyleHover.boxShadow} 
+                onMouseLeave={(e) => e.target.style.boxShadow = AgendateStyle.boxShadow}
+                onClick={toggleCalendar}>
+                Agendate!
+            </button>
+        </>
     )
 }
