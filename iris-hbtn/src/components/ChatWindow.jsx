@@ -77,4 +77,5 @@ const onAddHumanMessage = async (val) => {
 ChatWindow.propTypes = {
   toggleChat: propTypes.func.isRequired,
   display: propTypes.string.isRequired,
+  toggleCalendar: propTypes.func.isRequired
   }

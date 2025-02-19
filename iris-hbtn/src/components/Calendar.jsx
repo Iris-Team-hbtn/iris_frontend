@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid"; // For month view
-import timeGridPlugin from "@fullcalendar/timegrid"; // For week view
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import { InputPopUp } from "./InputPopUp";
 
 function Calendar() {
   const [nextDates, setNextDates] = useState([]); // State to store the next two weeks of dates
   const calendarRef = useRef(null);
   const [events, setEvents] = useState([])
+  const [showPopUp, setShowPopUp] = useState(false)
 
   useEffect(() => {
       // Function to get next two weeks of dates
@@ -73,6 +75,13 @@ function Calendar() {
   const filteredArray = fullcalendar.filter(bigItem => 
     !events.some(smallItem => smallItem.date === bigItem.date)
   );
+  const [selectedEvent, setSelectedEvent] = useState(null)
+  const handleClick = (info) => {
+    setSelectedEvent(info.event);
+    setShowPopUp(prevState => !prevState);
+  }
+  console.log(selectedEvent)
+
   return (
     <div>
       <FullCalendar
@@ -80,6 +89,7 @@ function Calendar() {
           plugins={[dayGridPlugin, timeGridPlugin]}
           initialView="timeGridWeek"
           events={filteredArray} // Combine fetched events with generated hourly slots
+          eventClick={handleClick}
           locale="es" // Set the locale to Spanish
           headerToolbar={{ right: 'prev,next', center: 'title', left: '' }}
           allDaySlot={false} // Removes the "All-day" slot
@@ -93,6 +103,7 @@ function Calendar() {
           hiddenDays={[0]} // hides day 0, Sunday
           themeSystem="bootstrap" // Optional: Use FullCalendar's built-in themes
       />
+      {showPopUp && <InputPopUp setShowPopUp={setShowPopUp} selectedEvent={selectedEvent} />}
     </div>
   );
 }
