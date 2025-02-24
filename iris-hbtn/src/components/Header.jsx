@@ -30,7 +30,6 @@ export const Header = ({toggleCalendar}) => {
     <div style={headerStyle}>
       <img src={irisLogo} alt="ChatButton" style={irisLogoStyle} />
       <h1 style={headerTextStyle}>Iris</h1>
-      <AgendateButtonHeader toggleCalendar={toggleCalendar} />
     </div>
   );
 };

@@ -6,10 +6,11 @@ body, html{
     margin: 0;
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
 }
 h1{
     color: white;
-    font-size: 5vw;
+    font-size: 5;
     padding: 0;
     margin: 0;
 }
@@ -83,6 +84,7 @@ h1{
 /* Change the background color of the event box */
 .fc-event {
   background-color: #3498db !important; /* Blue background */
+  font-size: large;
   color: white !important; /* White text */
   border-radius: 8px; /* Rounded corners for events */
   padding: 5px 5px; /* Some padding inside the event */

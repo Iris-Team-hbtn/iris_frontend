@@ -33,23 +33,46 @@ function Calendar() {
       setNextDates(getNextTwoWeeks());
   }, []);
 
-  useEffect(() => {console.log(nextDates);}, [nextDates]);
+  useEffect(() => {console.log("nextDates:",nextDates);}, [nextDates]);
 
   useEffect(() => {
     const fetchEvents = async () => {
+      const API_URL_EVENTS = 'http://127.0.0.1:5000/iris/appointments';
       try {
-        const response = await fetch("src/events.json");
-        const data = await response.json(); // Convert the response to a JSON object
-        setEvents(data.events); // Assuming the fetched data has a property 'events'
+        const response = await fetch(API_URL_EVENTS, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            credentials: 'include'
+          }
+        });
+    
+        if (!response.ok) {
+          console.error(`API Request failed with status: ${response.status}`);
+          throw new Error('Network response was not ok');
+        }
+    
+        // Parse the JSON data
+        const data = await response.json();
+        console.log('Fetched data:', data);  // Log the response to confirm
+    
+        // Check if 'events' is an array and set it
+        if (Array.isArray(data.events)) {
+          setEvents(data.events);
+        } else {
+          console.error('Expected events to be an array:', data.events);
+        }
       } catch (error) {
-        console.error("Error fetching events:", error); // Handle any errors during fetch
+        console.error('Error fetching events:', error);
       }
     };
+    
+    
     fetchEvents(); // Call the fetch function to get events
   }, []); // This effect runs only once after the component mounts
 
   useEffect(() => {
-    console.log(events); // Optional: Log the events for debugging
+    console.log("eventos:", events); // Optional: Log the events for debugging
   }, [events]);
 
   const fullcalendar = nextDates.map(day => {
@@ -63,13 +86,13 @@ function Calendar() {
         
         // Format the hour (pad with leading zero for single digits)
         const hour = String(i).padStart(2, '0');
-        
-        // Create the ISO-formatted date string for this hour
-        const isoDate = `${year}-${month}-${dayOfMonth}T${hour}:00`;
-        
+
+        // Create the ISO-formatted date string for this hour 
+        const isoDate = `${year}-${month}-${dayOfMonth}T${hour}:00:00`;
+
         hourlySlots.push({ date: isoDate }); // Add the hourly slot to the array
     }
-    
+
     return hourlySlots; // Return the hourly slots for the current day
   }).flat(); // Flatten the array of arrays into one array
   const filteredArray = fullcalendar.filter(bigItem => 
@@ -80,8 +103,10 @@ function Calendar() {
     setSelectedEvent(info.event);
     setShowPopUp(prevState => !prevState);
   }
-  console.log(selectedEvent)
-
+  console.log("selectedEvent:", selectedEvent)
+  console.log("fullcalendar:", fullcalendar);
+  console.log("events:", events);
+  console.log("filteredArray:", filteredArray);
   return (
     <div>
       <FullCalendar

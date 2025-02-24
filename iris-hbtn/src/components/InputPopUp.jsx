@@ -1,9 +1,12 @@
 import { ConfirmationPopUp } from './ConfirmationPopUp';
 import { useState } from 'react';
+import propTypes from 'prop-types';
+import Input from './Inputs';
+import ConfirmationButton from './ConfirmationButton'
 
 export const InputPopUp = ({ setShowPopUp, selectedEvent }) => {
   const PopUpStyle = {
-    backgroundColor: 'rgb(247, 247, 247)',
+    backgroundColor: 'white',
     color: 'black',
     width: '30vw',
     minWidth: '250px',
@@ -15,19 +18,19 @@ export const InputPopUp = ({ setShowPopUp, selectedEvent }) => {
     transform: 'translate(-50%, -50%)',
     overflow: 'hidden',
     padding: '2vw',
+    borderRadius: '3%',
     border: '1px solid rgb(155, 154, 154)',
     boxShadow: '5px 5px 15px rgba(0, 0, 0, 0.7)',
-    zIndex: 9900,  // Ensures it appears above other elements
+    zIndex: 9900,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    alignItems: 'flex-start',
   };
-
-  if (!selectedEvent) {
-    return <div>No event selected</div>;
-  }
-
   const { start } = selectedEvent;
-  const [openConfirmation, setOpenConfirmation] = useState(false); // Renamed to lowercase `openConfirmation`
+  const [openConfirmation, setOpenConfirmation] = useState(false);
 
-  const openingConfirmation = () => { // Renamed to camelCase
+  const openingConfirmation = () => {
     setOpenConfirmation(true);
   };
 
@@ -35,18 +38,12 @@ export const InputPopUp = ({ setShowPopUp, selectedEvent }) => {
     <>
       <div style={PopUpStyle}>
         <div>
-          <h2>Horario Seleccionado:</h2>
+          <h1 style={{color: 'black', fontSize: '30'}}>Horario Seleccionado:</h1>
           <div>{start ? start.toString() : 'No start time available'}</div>
         </div>
-        <div>
-          <h2>Nombre:</h2>
-          <input />
-        </div>
-        <div>
-          <h2>Email:</h2>
-          <input />
-        </div>
-        <button onClick={openingConfirmation}>Confirmar</button>
+        <Input input_value={"Nombre"}/>
+        <Input input_value={"E-mail"}/>
+        <ConfirmationButton openingConfirmation={openingConfirmation}/>
       </div>
       {openConfirmation && (
         <ConfirmationPopUp setShowPopUp={setShowPopUp} openConfirmation={setOpenConfirmation} />
@@ -54,3 +51,8 @@ export const InputPopUp = ({ setShowPopUp, selectedEvent }) => {
     </>
   );
 };
+
+InputPopUp.propTypes = {
+  setShowPopUp: propTypes.func.isRequired,
+  selectedEvent: propTypes.object.isRequired
+}
