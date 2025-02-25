@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
-const Button = ({openingConfirmation, handleSubmit}) => {
+const Button = ({ openingConfirmation, handleSubmit, disabled }) => {
   function handleClick() {
     openingConfirmation()
     handleSubmit()
   }
   return (
-    <StyledWrapper>
-      <button onClick={handleClick} className="button">
+    <StyledWrapper disabled={disabled}>
+      <button onClick={handleClick} disabled={disabled} className="button">
         <svg xmlns="http://www.w3.org/2000/svg" width={24} viewBox="0 0 24 24" height={24} fill="none" className="svg-icon"><g strokeWidth={2} strokeLinecap="round" stroke="#fff"><rect y={5} x={4} width={16} rx={2} height={16} /><path d="m8 3v4" /><path d="m16 3v4" /><path d="m4 11h16" /></g></svg>
         <span className="lable">Confrirmar</span>
       </button>
@@ -29,6 +29,7 @@ const StyledWrapper = styled.div`
     background: #3498db;
     border-radius: 20px;
     cursor: pointer;
+    opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   }
 
   .lable {
@@ -62,6 +63,7 @@ const StyledWrapper = styled.div`
 export default Button;
 
 Button.propTypes = {
-    openingConfirmation: propTypes.func.isRequired,
-  }
-  
+  openingConfirmation: propTypes.func.isRequired,
+  handleSubmit: propTypes.func.isRequired,
+  disabled: propTypes.bool.isRequired
+}

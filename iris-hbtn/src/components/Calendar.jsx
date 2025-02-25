@@ -109,7 +109,7 @@ function Calendar() {
   
       // Format it back to ISO string (without milliseconds and 'Z')
       const isoString = eventDate.toISOString().slice(0, 19);
-  
+
       // Set the modified event date (in ISO format without milliseconds)
       return isoString;
     };

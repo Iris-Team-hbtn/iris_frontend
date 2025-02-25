@@ -25,5 +25,6 @@ export const HeaderChat = ({ toggleCalendar, toggleChat }) => {
 }
 
 HeaderChat.propTypes = {
-  toggleChat: propTypes.func.isRequired
+  toggleChat: propTypes.func.isRequired,
+  toggleCalendar: propTypes.func.isRequired
 }

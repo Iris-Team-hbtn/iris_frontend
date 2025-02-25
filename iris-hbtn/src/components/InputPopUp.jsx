@@ -38,13 +38,13 @@ export const InputPopUp = ({ setShowPopUp, selectedEvent }) => {
   const handleSubmit = async () => {
     const formData = {
       'fullname': name_,
-      'month': 'Month of the appointment',
-      'day': 'Day of the appointment',
-      'startime': selectedEvent,
+      'month': Number(selectedEvent.slice(5, 7)),
+      'day': Number(selectedEvent.slice(8, 10)),
+      'starttime': Number(selectedEvent.slice(8, 10)),
       'email': email,
-      'year': 'Year of the appointment'
+      'year': Number(selectedEvent.slice(0, 4))
     }
-    const API_URL = 'http://127.0.0.1:5000/iris/appointments'
+    const API_URL = 'http://localhost:5000/iris/appointments'
     console.log(formData)
     try {
       const response = await fetch(API_URL, {
@@ -73,9 +73,13 @@ export const InputPopUp = ({ setShowPopUp, selectedEvent }) => {
           <h1 style={{ color: 'black', fontSize: '30' }}>Horario Seleccionado:</h1>
           <div>{selectedEvent}</div>
         </div>
-        <Input input_value={"Nombre"} value={name_} onChange={(n) => setName(n.target.value)} />
-        <Input input_value={"E-mail"} value={email} onChange={(e) => setEmail(e.target.value)} />
-        <ConfirmationButton handleSubmit={handleSubmit} openingConfirmation={openingConfirmation} />
+        <Input input_value={"Nombre"} type={'text'}  value={name_} onChange={(n) => setName(n.target.value)} />
+        <Input input_value={"E-mail"} type={'email'} value={email} onChange={(e) => setEmail(e.target.value)} />
+        <ConfirmationButton 
+         handleSubmit={handleSubmit} 
+         openingConfirmation={openingConfirmation} 
+         disabled={name_.trim() === '' || email.trim() === ''} // Disable button if fields are empty
+        />
       </div>
       {openConfirmation && (
         <ConfirmationPopUp setShowPopUp={setShowPopUp} openConfirmation={setOpenConfirmation} />
