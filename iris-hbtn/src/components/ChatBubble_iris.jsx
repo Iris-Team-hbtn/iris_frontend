@@ -5,7 +5,7 @@ export const ChatBubble_iris = ({ message }) => {
         color: 'black',
         maxWidth: '92%',
         backgroundColor: 'rgba(218, 218, 218, 0.65)',
-        letterSpacing: '0.5px',
+        letterSpacing: '1px',
         margin: '10px',
         borderRadius: '15px',
         borderBottomLeftRadius: '0px',

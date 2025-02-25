@@ -27,23 +27,55 @@ export const InputPopUp = ({ setShowPopUp, selectedEvent }) => {
     justifyContent: 'space-evenly',
     alignItems: 'flex-start',
   };
-  const { start } = selectedEvent;
+
   const [openConfirmation, setOpenConfirmation] = useState(false);
+  const [name_, setName] = useState(''); // Store 'name_' input
+  const [email, setEmail] = useState(''); // Store 'email' input
 
   const openingConfirmation = () => {
     setOpenConfirmation(true);
+  };
+  const handleSubmit = async () => {
+    const formData = {
+      'fullname': name_,
+      'month': 'Month of the appointment',
+      'day': 'Day of the appointment',
+      'startime': selectedEvent,
+      'email': email,
+      'year': 'Year of the appointment'
+    }
+    const API_URL = 'http://127.0.0.1:5000/iris/appointments'
+    console.log(formData)
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        // Handle success
+        console.log('Data successfully submitted!');
+      } else {
+        console.error('Error submitting data:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+    }
   };
 
   return (
     <>
       <div style={PopUpStyle}>
         <div>
-          <h1 style={{color: 'black', fontSize: '30'}}>Horario Seleccionado:</h1>
-          <div>{start ? start.toString() : 'No start time available'}</div>
+          <h1 style={{ color: 'black', fontSize: '30' }}>Horario Seleccionado:</h1>
+          <div>{selectedEvent}</div>
         </div>
-        <Input input_value={"Nombre"}/>
-        <Input input_value={"E-mail"}/>
-        <ConfirmationButton openingConfirmation={openingConfirmation}/>
+        <Input input_value={"Nombre"} value={name_} onChange={(n) => setName(n.target.value)} />
+        <Input input_value={"E-mail"} value={email} onChange={(e) => setEmail(e.target.value)} />
+        <ConfirmationButton handleSubmit={handleSubmit} openingConfirmation={openingConfirmation} />
       </div>
       {openConfirmation && (
         <ConfirmationPopUp setShowPopUp={setShowPopUp} openConfirmation={setOpenConfirmation} />
@@ -54,5 +86,5 @@ export const InputPopUp = ({ setShowPopUp, selectedEvent }) => {
 
 InputPopUp.propTypes = {
   setShowPopUp: propTypes.func.isRequired,
-  selectedEvent: propTypes.object.isRequired
+  selectedEvent: propTypes.string.isRequired
 }

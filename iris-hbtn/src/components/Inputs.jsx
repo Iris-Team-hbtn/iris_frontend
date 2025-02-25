@@ -1,13 +1,15 @@
 import styled from 'styled-components';
+import propTypes from 'prop-types';
 
-const Input = ({input_value}) => {
+const Input = ({input_value, value, onChange}) => {
   return (
     <StyledWrapper>
       <div className="group">
-        <input required type="text" className="input" />
+        <input required type="text" value={value} className="input" onChange={onChange}/>
         <span className="highlight" />
         <span className="bar" />
         <label>{input_value}</label>
+        
       </div>
     </StyledWrapper>
   );
@@ -107,3 +109,8 @@ const StyledWrapper = styled.div`
   }`;
 
 export default Input;
+Input.propTypes = {
+    input_value: propTypes.string.isRequired,
+    value: propTypes.string.isRequired,
+    onChange: propTypes.func.isRequired
+  }

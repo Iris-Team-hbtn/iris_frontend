@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
-const Button = ({openingConfirmation}) => {
+const Button = ({openingConfirmation, handleSubmit}) => {
+  function handleClick() {
+    openingConfirmation()
+    handleSubmit()
+  }
   return (
     <StyledWrapper>
-      <button onClick={openingConfirmation} className="button">
+      <button onClick={handleClick} className="button">
         <svg xmlns="http://www.w3.org/2000/svg" width={24} viewBox="0 0 24 24" height={24} fill="none" className="svg-icon"><g strokeWidth={2} strokeLinecap="round" stroke="#fff"><rect y={5} x={4} width={16} rx={2} height={16} /><path d="m8 3v4" /><path d="m16 3v4" /><path d="m4 11h16" /></g></svg>
         <span className="lable">Confrirmar</span>
       </button>

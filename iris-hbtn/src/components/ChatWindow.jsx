@@ -47,6 +47,7 @@ export const ChatWindow = ({ toggleCalendar, toggleChat, display }) => {
         } 
     catch (error) {
       console.error(error)
+      return '';
 }
   }
 const onAddHumanMessage = async (val) => {

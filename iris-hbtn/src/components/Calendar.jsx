@@ -100,13 +100,26 @@ function Calendar() {
   );
   const [selectedEvent, setSelectedEvent] = useState(null)
   const handleClick = (info) => {
-    setSelectedEvent(info.event);
+    const sele = () => {
+      // Get the original Date object
+      const eventDate = new Date(info.event.start);
+  
+      // Subtract 3 hours from it
+      eventDate.setHours(eventDate.getHours() - 3);
+  
+      // Format it back to ISO string (without milliseconds and 'Z')
+      const isoString = eventDate.toISOString().slice(0, 19);
+  
+      // Set the modified event date (in ISO format without milliseconds)
+      return isoString;
+    };
+    setSelectedEvent(sele);
     setShowPopUp(prevState => !prevState);
   }
   console.log("selectedEvent:", selectedEvent)
-  console.log("fullcalendar:", fullcalendar);
   console.log("events:", events);
-  console.log("filteredArray:", filteredArray);
+  /*console.log("fullcalendar:", fullcalendar);
+    console.log("filteredArray:", filteredArray); */
   return (
     <div>
       <FullCalendar
