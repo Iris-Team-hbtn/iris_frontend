@@ -1,31 +1,34 @@
-export const AgendateButton = ({toggleCalendar}) => {
-    const AgendateStyle = {
-        backgroundColor: '#1f3685',
-        color: 'white',
-        height: '90%',
-        width: '200px',               
-        marginLeft: '5px',
-        borderRadius: '30px',
-        border: '1px solid rgb(201, 201, 201)',
-        boxShadow: 'inset 0 -4px 10px rgba(255, 255, 255, 0.3)',
-        fontSize: '16px',
-        fontWeight: 'bold',
-        cursor: 'pointer',
-        transition: 'all 0.3s ease',
-        display: 'inline-block',
-        textAlign: 'center',
-        padding: '12px',
-    }
+import { useState } from 'react';
 
-    const AgendateStyleHover = {
-        boxShadow: 'inset 0 -4px 20px rgba(255, 255, 255, 0.93)',
+export const AgendateButton = ({toggleCalendar}) => {
+    const [isHovered, setIsHovered] = useState(false);
+    const AgendateStyle = {
+      backgroundColor: '#1f3685',
+      color: 'white',
+      height: '90%',
+      width: '200px',               
+      marginLeft: '5px',
+      borderRadius: '30px',
+      border: '1px solid rgb(255, 255, 255)',
+      boxShadow: isHovered ? 'inset 0 -5px 15px rgba(255, 255, 255, 0.93)' : 'inset 0 0px 0px rgba(255, 255, 255, 0.3)',
+      fontSize: '16px',
+      fontWeight: 'bold',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      textAlign: 'center',  // This centers the text inside the button
+      padding: '12px',
+      display: 'flex',         // Add flexbox to make the button a flex container
+      justifyContent: 'center',  // Horizontally center the text
+      alignItems: 'center',      // Vertically center the text
     }
 
     return (
         <button
-            style={AgendateStyle} 
-            onMouseEnter={(e) => e.target.style.boxShadow = AgendateStyleHover.boxShadow} 
-            onMouseLeave={(e) => e.target.style.boxShadow = AgendateStyle.boxShadow}
+            style={AgendateStyle}
+            onMouseEnter={() => setIsHovered(true)} 
+            onMouseLeave={() => setIsHovered(false)} 
+            onTouchStart={() => setIsHovered(true)}  // Handle touchstart for mobile devices
+            onTouchEnd={() => setIsHovered(false)}   // Handle touchend for mobile devices
             onClick={toggleCalendar}
         >
             Agendate!

@@ -2,8 +2,13 @@ import { useState } from 'react'
 import { ChatButton } from './ChatButton';
 import { ChatWindow } from './ChatWindow';
 
-export const Chat = ({toggleCalendar}) => {
+export const Chat = () => {
   const [displayState, setDisplayState] = useState('none')
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleCalendar = () => {
+        setIsOpen(prevState => !prevState);
+    };
 
   const toggleChat = () => {
     if (displayState == 'none'){
@@ -14,8 +19,8 @@ export const Chat = ({toggleCalendar}) => {
   }
   return (
     <>
-        <ChatWindow toggleCalendar={toggleCalendar}toggleChat={toggleChat} display={displayState} />
         <ChatButton toggleChat={toggleChat} />
+        <ChatWindow toggleCalendar={toggleCalendar}toggleChat={toggleChat} isOpen={isOpen} display={displayState} />
     </>
   )
 }

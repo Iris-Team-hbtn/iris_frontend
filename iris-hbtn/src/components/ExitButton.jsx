@@ -4,8 +4,9 @@ import propTypes from 'prop-types';
 export const ExitButton = ({toggleChat}) => {
   const XStyle = {
     cursor: 'pointer',
-    width: '2%',
-    minWidth: '35px',
+    width: '5%',
+
+    minWidth: '25px',
     transition: 'all 0.3s ease',
     borderRadius: '50%',
     marginRight: '5px',

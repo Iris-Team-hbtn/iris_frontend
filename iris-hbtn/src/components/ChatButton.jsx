@@ -8,13 +8,13 @@ export const ChatButton = ({toggleChat}) => {
         right: '1%',
         cursor: 'pointer',
         width: '4%',
-        minWidth: '50px',
+        minWidth: '45px',
         borderRadius: '50%',
         transition: 'all 0.3s ease',
         boxShadow: '5px 5px 20px rgba(0, 0, 0, 0.7)',
     };
     const hoverStyle = {
-        boxShadow: '20px 20px 20px rgba(0, 0, 0, 0.7)',
+        boxShadow: '5px 5px 30px rgba(0, 0, 0, 0.91)',
     }
     return (
         <>

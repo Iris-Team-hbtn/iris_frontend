@@ -1,5 +1,4 @@
 import irisLogo from '../assets/iris_logo_white.png';
-import { AgendateButtonHeader } from './AgendateButtonHeader';
 
 export const Header = ({toggleCalendar}) => {
   const headerStyle = {

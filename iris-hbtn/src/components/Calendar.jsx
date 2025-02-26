@@ -130,6 +130,7 @@ function Calendar() {
           eventClick={handleClick}
           locale="es" // Set the locale to Spanish
           headerToolbar={{ right: 'prev,next', center: 'title', left: '' }}
+          titleFormat={{ month: 'long', day: 'numeric',}}
           allDaySlot={false} // Removes the "All-day" slot
           slotMinTime="11:00:00" // Earliest time shown is 11:00 AM
           slotMaxTime="19:00:00" // Latest time shown is 7:00 PM

@@ -6,7 +6,7 @@ export const HeaderChat = ({ toggleCalendar, toggleChat }) => {
   const headerChatStyle = {
     width: '100%',
     minWidth: '352px',
-    height: '6.8%',
+    height: '6%',
     backgroundColor: '#1f3685',
     display: 'flex',
     alignItems: 'center',

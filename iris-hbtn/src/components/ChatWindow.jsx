@@ -3,8 +3,9 @@ import { ChatBubble_input } from './ChatBubble_input'
 import { ChatContainer } from './ChatContainer';
 import { useState } from 'react';
 import propTypes from 'prop-types';
+import { CalendarDiv } from './CalendarDiv';
 
-export const ChatWindow = ({ toggleCalendar, toggleChat, display }) => {
+export const ChatWindow = ({ toggleCalendar, toggleChat, display, isOpen }) => {
   const rectangleStyle = {
     display: display,
     flexDirection: 'column',
@@ -32,12 +33,13 @@ export const ChatWindow = ({ toggleCalendar, toggleChat, display }) => {
   ])
 
   const fetchIris = async (message) => {
-    const API_URL = 'http://127.0.0.1:5000/iris/chat'
+    const API_URL = 'http://localhost:5000/iris/chat'
     const OptsPost = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-      }, 
+      },
+      credentials: 'include',
       body: JSON.stringify({ "query": message })
       }
       try{
@@ -72,6 +74,7 @@ const onAddHumanMessage = async (val) => {
       <HeaderChat toggleCalendar={toggleCalendar} toggleChat={toggleChat} />
       <ChatContainer msg_list={messages} />
       <ChatBubble_input addmessage={onAddHumanMessage} />
+      <CalendarDiv isOpen={isOpen} />
     </div>
   );
 }

@@ -1,31 +1,36 @@
 import Calendar from "./Calendar";
-import propTypes from 'prop-types'
+import propTypes from 'prop-types';
+import { useSpring, animated } from 'react-spring';
 
 export const CalendarDiv = ({ isOpen }) => {
 
-    const calendarDivStyle = {
+    const calendarDivStyle = useSpring({
         backgroundColor: 'rgb(247, 247, 247)',
-        width: '70vw',
-        minWidth: '350px',
-        height: '60vh',
+        width: '80%',
+        minWidth: '352px',
         minHeight: '350px',
-        position: 'fixed',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        overflow: 'hidden', 
-        padding: '1vw',
-        border: '1px solid rgb(155, 154, 154)',
-        boxShadow: '5px 5px 15px rgba(0, 0, 0, 0.7)',
-    };
+        position: 'absolute',
+        top: '5.8%',
+        left: '0%',
+        overflow: 'hidden',
+        borderRight: '0px solid rgb(255, 255, 255)',
+        borderBottom: '2px solid rgb(248, 248, 248)',
+        borderTop: 'none',
+        borderLeft: '2px solid rgb(255, 255, 255)5',
+        transform: 'translateY(0)',
+        reset: true,
+        opacity: 1,
+        from: { transform: 'translateY(-5%)', opacity: 0.5 },
+        config: { tension: 300, friction: 26 },
+    });
 
     return (
         isOpen &&(
-        <div style={calendarDivStyle}>
+        <animated.div style={calendarDivStyle}>
             <Calendar/>
-        </div>
+        </animated.div>
     ));
 };
 CalendarDiv.propTypes = {
-  isOpen: propTypes.bool.isRequired,
+  isOpen: propTypes.func.isRequired,
 }

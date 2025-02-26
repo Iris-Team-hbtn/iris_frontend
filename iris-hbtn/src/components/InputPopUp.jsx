@@ -8,9 +8,9 @@ export const InputPopUp = ({ setShowPopUp, selectedEvent }) => {
   const PopUpStyle = {
     backgroundColor: 'white',
     color: 'black',
-    width: '30vw',
+    width: '15vw',
     minWidth: '250px',
-    height: '50vh',
+    height: '30vh',
     minHeight: '350px',
     position: 'fixed',
     top: '50%',
@@ -25,7 +25,7 @@ export const InputPopUp = ({ setShowPopUp, selectedEvent }) => {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    alignItems: 'flex-start',
+    alignItems: 'center',
   };
 
   const [openConfirmation, setOpenConfirmation] = useState(false);
@@ -40,7 +40,7 @@ export const InputPopUp = ({ setShowPopUp, selectedEvent }) => {
       'fullname': name_,
       'month': Number(selectedEvent.slice(5, 7)),
       'day': Number(selectedEvent.slice(8, 10)),
-      'starttime': Number(selectedEvent.slice(8, 10)),
+      'starttime': Number(selectedEvent.slice(11, 13)),
       'email': email,
       'year': Number(selectedEvent.slice(0, 4))
     }
