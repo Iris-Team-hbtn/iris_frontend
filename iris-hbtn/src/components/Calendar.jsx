@@ -3,12 +3,14 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import { InputPopUp } from "./InputPopUp";
+import { Loader } from "./loadingspinny";
 
 function Calendar() {
   const [nextDates, setNextDates] = useState([]); // State to store the next two weeks of dates
   const calendarRef = useRef(null);
   const [events, setEvents] = useState([])
   const [showPopUp, setShowPopUp] = useState(false)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
       // Function to get next two weeks of dates
@@ -65,6 +67,9 @@ function Calendar() {
       } catch (error) {
         console.error('Error fetching events:', error);
       }
+        finally {
+          setLoading(false);
+        }
     };
     
     
@@ -120,6 +125,17 @@ function Calendar() {
   console.log("events:", events);
   /*console.log("fullcalendar:", fullcalendar);
     console.log("filteredArray:", filteredArray); */
+    if (loading) {
+      return <div style={{
+              display: 'flex',
+              justifyContent: 'center',  // Horizontally center
+              alignItems: 'center',      // Vertically center
+              height: '53vh'            // Take up the full height of the viewport
+            }}>
+                <Loader/>
+             </div>
+    }
+
   return (
     <div>
       <FullCalendar
@@ -130,7 +146,7 @@ function Calendar() {
           eventClick={handleClick}
           locale="es" // Set the locale to Spanish
           headerToolbar={{ right: 'prev,next', center: 'title', left: '' }}
-          titleFormat={{ month: 'long', day: 'numeric',}}
+          titleFormat={{ month: 'short', day: 'numeric',}}
           allDaySlot={false} // Removes the "All-day" slot
           slotMinTime="11:00:00" // Earliest time shown is 11:00 AM
           slotMaxTime="19:00:00" // Latest time shown is 7:00 PM

@@ -1,85 +1,94 @@
-import { HeaderChat } from './HeaderChat'
-import { ChatBubble_input } from './ChatBubble_input'
+import { HeaderChat } from './HeaderChat';
+import { ChatBubble_input } from './ChatBubble_input';
 import { ChatContainer } from './ChatContainer';
 import { useState } from 'react';
 import propTypes from 'prop-types';
 import { CalendarDiv } from './CalendarDiv';
+import { useSpring, animated } from 'react-spring';
 
 export const ChatWindow = ({ toggleCalendar, toggleChat, display, isOpen }) => {
-  const rectangleStyle = {
-    display: display,
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    width: '40%',
-    minWidth: '350px',
-    maxwidth: '90%',
-    height: '80%',
-    backgroundColor: 'white',
-    position: 'fixed',
-    bottom: '9%',
-    right: '5%',
-    border: '1px solid rgb(155, 154, 154)',
-    boxShadow: '5px 5px 15px rgba(0, 0, 0, 0.7)',
-    borderRadius: '15px',
-    borderBottomRightRadius: '0px',
-    transition: 'all 0.3s ease',
-  };
-
   const [messages, setMessages] = useState([
     {
       user: 'Iris',
-      message: 'Hola! Soy Iris, una asistente virtual destinada a ayudarte.'
-    }
-  ])
+      message: 'Hola! Soy Iris, una asistente virtual destinada a ayudarte.',
+    },
+  ]);
 
   const fetchIris = async (message) => {
-    const API_URL = 'http://localhost:5000/iris/chat'
+    const API_URL = 'http://localhost:5000/iris/chat';
     const OptsPost = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      method: 'POST',
       credentials: 'include',
-      body: JSON.stringify({ "query": message })
-      }
-      try{
-        const response = await fetch(API_URL, OptsPost);
-        const data = await response.json()
-        return data
-        } 
-    catch (error) {
-      console.error(error)
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query: message }),
+    };
+    try {
+      const response = await fetch(API_URL, OptsPost);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error(error);
       return '';
-}
-  }
-const onAddHumanMessage = async (val) => {
+    }
+  };
 
-    const newmessage = {
+  const onAddHumanMessage = async (val) => {
+    const newMessage = {
       user: 'Human',
-      message: val
-      }
-  setMessages([...messages, newmessage])
+      message: val,
+    };
+    setMessages([...messages, newMessage]);
 
-  let irisresponse = await fetchIris(val)
-  const irismessage = {
-    user: 'Iris',
-    message: irisresponse.response
-  }
+    let irisResponse = await fetchIris(val);
+    const irisMessage = {
+      user: 'Iris',
+      message: irisResponse.response,
+    };
 
-  setMessages([...messages, newmessage, irismessage])
-  console.log(irismessage)
-  }
+    setMessages([...messages, newMessage, irisMessage]);
+    console.log(irisMessage);
+  };
+
+  // Use react-spring to animate the visibility and movement of the chat window
+  const chatWindowAnimation = useSpring({
+    opacity: display === 'none' ? 0 : 1, // Fade in and out
+    transform: display === 'none' ? 'translateY(50px)' : 'translateY(0)', // Slide up and down
+    config: { tension: 250, friction: 20 }, // Adjust smoothness
+  });
+
   return (
-    <div style={rectangleStyle}>
+    <animated.div
+      style={{
+        ...chatWindowAnimation, // Apply animation styles
+        position: 'fixed',
+        bottom: '9%',
+        right: '5%',
+        width: '40%',
+        minWidth: '350px',
+        maxWidth: '90%',
+        height: '80%',
+        backgroundColor: 'white',
+        border: '1px solid rgb(155, 154, 154)',
+        boxShadow: '5px 5px 15px rgba(0, 0, 0, 0.7)',
+        borderRadius: '15px',
+        borderBottomRightRadius: '0px',
+        display: display,
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+      }}
+    >
       <HeaderChat toggleCalendar={toggleCalendar} toggleChat={toggleChat} />
       <ChatContainer msg_list={messages} />
       <ChatBubble_input addmessage={onAddHumanMessage} />
       <CalendarDiv isOpen={isOpen} />
-    </div>
+    </animated.div>
   );
-}
+};
+
 ChatWindow.propTypes = {
   toggleChat: propTypes.func.isRequired,
   display: propTypes.string.isRequired,
-  toggleCalendar: propTypes.func.isRequired
-  }
+  toggleCalendar: propTypes.func.isRequired,
+};
