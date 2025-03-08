@@ -7,6 +7,7 @@ import { CalendarDiv } from './CalendarDiv';
 import { useSpring, animated } from 'react-spring';
 
 export const ChatWindow = ({ toggleCalendar, toggleChat, display, isOpen }) => {
+  const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([
     {
       user: 'Iris',
@@ -35,6 +36,7 @@ export const ChatWindow = ({ toggleCalendar, toggleChat, display, isOpen }) => {
   };
 
   const onAddHumanMessage = async (val) => {
+    setLoading(true);
     const newMessage = {
       user: 'Human',
       message: val,
@@ -46,7 +48,7 @@ export const ChatWindow = ({ toggleCalendar, toggleChat, display, isOpen }) => {
       user: 'Iris',
       message: irisResponse.response,
     };
-
+    setLoading(false);
     setMessages([...messages, newMessage, irisMessage]);
     console.log(irisMessage);
   };
@@ -80,7 +82,7 @@ export const ChatWindow = ({ toggleCalendar, toggleChat, display, isOpen }) => {
       }}
     >
       <HeaderChat toggleCalendar={toggleCalendar} toggleChat={toggleChat} />
-      <ChatContainer msg_list={messages} />
+      <ChatContainer msg_list={messages} loading={loading}/>
       <ChatBubble_input addmessage={onAddHumanMessage} />
       <CalendarDiv isOpen={isOpen} />
     </animated.div>

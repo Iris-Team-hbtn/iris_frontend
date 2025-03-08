@@ -1,8 +1,8 @@
-import BlueTick from '../assets/blue-tick.png';
+import RedCross from '../assets/red-cross.png';
 import propTypes from 'prop-types';
 import CerrarButton from './CerrarButton'
 
-export const ConfirmationPopUp = ({ setShowPopUp, openConfirmation }) => {
+export const FailPopUp = ({ setShowPopUp, openConfirmation }) => {
   const ConfPopUpStyle = {
     backgroundColor: 'white',
     color: 'black',
@@ -33,17 +33,17 @@ export const ConfirmationPopUp = ({ setShowPopUp, openConfirmation }) => {
     openConfirmation(false); // Close the ConfirmationPopUp
     setShowPopUp(false);     // Close the InputPopUp
   };
-  const blue = '#3498db'
+  
   return (
     <div style={ConfPopUpStyle}>
-      <h2 style={{ color: 'black' }}>Consulta Agendada!</h2>
-      <img src={BlueTick} alt='ConfirmationTick' style={{width:'20%'}}/>
-      <CerrarButton color={blue}handleConfirm={handleConfirm}/>
+      <h2 style={{ color: 'black' }}>Hubo un Error!</h2>
+      <img src={RedCross} alt='ConfirmationTick' style={{width:'20%'}}/>
+      <CerrarButton handleConfirm={handleConfirm}/>
     </div>
   );
 };
 
-ConfirmationPopUp.propTypes = {
+FailPopUp.propTypes = {
   setShowPopUp: propTypes.func.isRequired,
   openConfirmation: propTypes.func.isRequired
 }
