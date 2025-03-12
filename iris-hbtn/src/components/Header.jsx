@@ -30,9 +30,9 @@ export const Header = () => {
     targetRef.current.scrollIntoView({ behavior: 'smooth' });
   };
   const headerStyle = {
-    backgroundColor: '#1f3685',
+    backgroundColor: 'rgba(31, 55, 133, 0.75)',
     width: '100%',
-    height: '6%',
+    height: '5%',
     position: 'fixed',
     top: '0',
     left: '0',
@@ -103,8 +103,8 @@ export const Header = () => {
     }}
   >
     <h1 className='home-text'>Meet IRIS!</h1>
-    <div style={{height: '10vw'}}></div>
-    <h1 className='header-text'>Your&nbsp;personal healthcare AI assistant</h1>
+    <div style={{height: '15vw', minHeight: '150px'}}></div>
+    <h1 className='homea-text'>Your&nbsp;personal healthcare AI assistant</h1>
   </div>
       </div>
       <div ref={featuresRef} style={{desplay:'flex', position: 'static', paddingTop: '40px', minWidth: '380px', backgroundColor: 'green' }}>

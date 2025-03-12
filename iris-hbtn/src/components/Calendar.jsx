@@ -60,18 +60,24 @@ function Calendar() {
     
         // Check if 'events' is an array and set it
         if (Array.isArray(data.events)) {
-          setEvents(data.events);
+          // Trim the time zone offset from each event date
+          const trimmedEvents = data.events.map(event => {
+            return {
+              ...event,
+              date: event.date.slice(0, -6) // Trim the time zone offset
+            };
+          });
+          setEvents(trimmedEvents);
         } else {
           console.error('Expected events to be an array:', data.events);
         }
       } catch (error) {
         console.error('Error fetching events:', error);
       }
-        finally {
-          setLoading(false);
-        }
+      finally {
+        setLoading(false);
+      }
     };
-    
     
     fetchEvents(); // Call the fetch function to get events
   }, []); // This effect runs only once after the component mounts
@@ -94,15 +100,14 @@ function Calendar() {
 
         // Create the ISO-formatted date string for this hour 
         const isoDate = `${year}-${month}-${dayOfMonth}T${hour}:00:00`;
-
         hourlySlots.push({ date: isoDate }); // Add the hourly slot to the array
     }
-
     return hourlySlots; // Return the hourly slots for the current day
   }).flat(); // Flatten the array of arrays into one array
   const filteredArray = fullcalendar.filter(bigItem => 
     !events.some(smallItem => smallItem.date === bigItem.date)
   );
+  console.log("filtered:", filteredArray)
   const [selectedEvent, setSelectedEvent] = useState(null)
   const handleClick = (info) => {
     const sele = () => {
