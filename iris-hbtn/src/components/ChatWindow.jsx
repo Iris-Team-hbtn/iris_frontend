@@ -16,7 +16,7 @@ export const ChatWindow = ({ toggleCalendar, toggleChat, display, isOpen }) => {
   ]);
 
   const fetchIris = async (message) => {
-    const API_URL = 'http://35.222.2.195:5000/iris/chat';
+    const API_URL = 'http://34.44.177.109:5000/iris/chat';
     const OptsPost = {
       method: 'POST',
       credentials: 'include',

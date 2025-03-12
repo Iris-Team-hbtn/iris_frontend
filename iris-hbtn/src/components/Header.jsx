@@ -75,16 +75,37 @@ export const Header = () => {
   return (
     <div width='100vw'>
       <div style={headerStyle}>
-        <img src={irisLogo} alt='irisLogo' style={irisLogoStyle} />
-        <h1 style={{display: 'flex', alignItems: 'center'}} className='header-text'>Iris</h1>
-        <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end'}}>
+          <img src={irisLogo} alt='irisLogo' style={irisLogoStyle} />
+          <h1 style={{display: 'flex', alignItems: 'center'}} className='header-text'>Iris</h1>
+        <div style={{ paddingRight: '10px', width: '100%', display: 'flex', justifyContent: 'flex-end'}}>
           <Button content={'Home'} scrollTo={() => scrollToDiv(homeRef)} />
           <Button content={'Features'} scrollTo={() => scrollToDiv(featuresRef)} />
           <Button content={'About Us'} scrollTo={() => scrollToDiv(aboutUsRef)} />
         </div>
       </div>
-      <div ref={homeRef} style={{width: '100%'}}>
-        <img src={homepic} style={{width: '100%', height:'2%',}}/>
+      <div ref={homeRef} style={{ width: '100%', height: 'auto', overflow: 'hidden' }}>
+        <img 
+          src={homepic} 
+          className="home-image"
+          style={{width: '100%', 
+                  height: '100vh',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  position: 'relative'}}/>
+          <div 
+          style={{
+      position: 'absolute',
+      top: '50%',  // Center vertically
+      left: '50%', // Center horizontally
+      transform: 'translate(-50%, -50%)', // Adjust to truly center
+      color: 'white',  // Optional: ensure the text is visible on top of the image
+      textAlign: 'center', // Optional: center the text horizontally
+    }}
+  >
+    <h1 className='home-text'>Meet IRIS!</h1>
+    <div style={{height: '10vw'}}></div>
+    <h1 className='header-text'>Your&nbsp;personal healthcare AI assistant</h1>
+  </div>
       </div>
       <div ref={featuresRef} style={{desplay:'flex', position: 'static', paddingTop: '40px', minWidth: '380px', backgroundColor: 'green' }}>
         <h1>Key Features</h1>
