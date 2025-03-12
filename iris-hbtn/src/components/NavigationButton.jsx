@@ -11,30 +11,32 @@ export const Button = ({ content, scrollTo }) => {
 };
 
 const StyledWrapper = styled.div`
+  /* This makes the wrapper behave like a flex container */
+  display: inline-flex;
+  align-items: center;
+
   button {
     color: white;
     text-decoration: none;
     font-size: 25px;
     border: none;
     background: none;
-    font-weight: 600;
+    font-weight: 500;
     white-space: nowrap;
-    padding: 10px 20px;
+    padding: 10px 10px;
+    cursor: pointer;
   }
 
   /* Prevent wrapping and make buttons responsive */
   @media (max-width: 768px) {
     button {
-      font-size: 18px;  /* Smaller font size on mobile */
-      padding: 4px 10px; /* Adjust button padding for smaller screens */
+      font-size: 17px;
+      padding: 4px 5px;
     }
   }
 
-  button::before {
-    margin-left: auto;
-  }
-
-  button::after, button::before {
+  /* Button hover effect */
+  button::before, button::after {
     content: '';
     width: 0%;
     height: 2px;
