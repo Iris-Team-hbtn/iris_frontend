@@ -1,26 +1,17 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import irisLogo from '../assets/iris_logo_white.png';
 import axel from '../assets/axel.jpg';
 import alexis from '../assets/alexis.jpg';
 import santiago from '../assets/santiago.jpg';
 import esteban from '../assets/esteban.jpg';
-import linkedin from '../assets/linkedin.png';
-import github from '../assets/github.png';
 import homepic from '../assets/output.jpg';
-import { useSpring, animated } from 'react-spring';
 import { Button } from './NavigationButton';
 import { Card } from './HoverCard';
-import { FeedbackForm } from './EmailInput';
-import vid1 from '../assets/vid1.mp4'
-import vid2 from '../assets/vid2.mp4'
-import vid3 from '../assets/vid3.mp4'
+import vid1 from '../assets/video5.mp4'
+import vid2 from '../assets/video4.mp4'
+import vid3 from '../assets/video6.mp4'
 
 export const Header = () => {
-  // State hooks for each image hover
-  const [hoveredAxel, setHoveredAxel] = useState(false);
-  const [hoveredAlexis, setHoveredAlexis] = useState(false);
-  const [hoveredSantiago, setHoveredSantiago] = useState(false);
-  const [hoveredEsteban, setHoveredEsteban] = useState(false);
   const homeRef = useRef(null)
   const featuresRef = useRef(null);
   const aboutUsRef = useRef(null);
@@ -51,33 +42,12 @@ export const Header = () => {
     display: 'flex',
     alignItems: 'center',
   };
-
-  const imgStyle = (hovered) => ({
-    width: '15vw',
-    minWidth: '270px',
-    filter: hovered ? 'grayscale(0%)' : 'grayscale(70%)',
-    border: '2px solid rgb(0, 0, 0)',
-    transition: 'transform 0.5s, opacity 0.5s',
-    transform: hovered ? 'scale(1.1)' : 'scale(1)',
-    height: 'auto',
-    objectFit: 'cover',
-  });
-
-  const divStyle = useSpring({
-    backgroundColor: 'black',
-    transform: 'translateY(0)',
-    reset: true,
-    opacity: 1,
-    from: { transform: 'translateY(-5%)', opacity: 0.5 },
-    config: { tension: 100, friction: 20 },
-  })
-
   return (
     <div width='100vw'>
       <div style={headerStyle}>
         <img src={irisLogo} alt='irisLogo' style={irisLogoStyle} />
         <h1 style={{ display: 'flex', alignItems: 'center' }} className='header-text'>Iris</h1>
-        <div style={{ paddingRight: '10px', width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
+        <div style={{ marginRight: '10px', width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
           <Button content={'Home'} scrollTo={() => scrollToDiv(homeRef)} />
           <Button content={'Features'} scrollTo={() => scrollToDiv(featuresRef)} />
           <Button content={'About Us'} scrollTo={() => scrollToDiv(aboutUsRef)} />
@@ -129,19 +99,18 @@ export const Header = () => {
           borderRadius: '15px',
           alignItems: 'center',
           flexWrap: 'wrap',
-          width: '90%',
-          padding: '10px',
+          width: '95%',
+          padding: '0px',
           marginBottom: '10px'
         }}>
-          <video style={{ minWidth: '350px' }} width="45%" controls poster="/assets/video_poster.jpg">
+          <video style={{ marginTop: '20px', marginBottom: '20px', width: '50%', minWidth: '350px' }} width="45%" controls poster="/assets/video_poster.jpg">
             <source src={vid1} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <p style={{ padding: '5%', width: '40%', minWidth: '350px' }}>
+          <p style={{ width: '40%', minWidth: '350px' }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit...
           </p>
         </div>
-
         {/* Second block */}
         <div style={{
          backgroundColor: 'rgb(31, 55, 133)',
@@ -150,15 +119,15 @@ export const Header = () => {
          borderRadius: '15px',
          alignItems: 'center',
          flexWrap: 'wrap',
-         width: '90%',
-         padding: '10px',
+         width: '95%',
+         padding: '0px',
          marginTop: '10px',
          marginBottom: '10px'
         }}>
-          <p style={{ padding: '2%', width: '40%', minWidth: '350px' }}>
+          <p style={{ width: '40%', minWidth: '350px' }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit...
           </p>
-          <video style={{ minWidth: '350px' }} width="55%" controls poster="/assets/video_poster.jpg">
+          <video style={{ marginTop: '20px', marginBottom: '20px', minWidth: '350px' }} width="55%" controls poster="/assets/video_poster.jpg">
             <source src={vid2} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -172,31 +141,44 @@ export const Header = () => {
           borderRadius: '15px',
           alignItems: 'center',
           flexWrap: 'wrap',
-          width: '90%',
-          padding: '10px',
+          width: '95%',
+          padding: '0px',
           marginTop: '10px',
           marginBottom: '10px'
         }}>
-          <video style={{ minWidth: '350px' }} width="55%" controls poster="/assets/video_poster.jpg">
+          <video style={{ marginTop: '20px', marginBottom: '20px', minWidth: '350px' }} width="55%" controls poster="/assets/video_poster.jpg">
             <source src={vid3} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <p style={{ padding: '2%', width: '40%', minWidth: '350px' }}>
+          <p style={{width: '40%', minWidth: '350px' }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit...
           </p>
         </div>
       </div>
-      <div ref={aboutUsRef} style={{ position: 'relative', top: '49px', minWidth: '305px', backgroundColor: '#ffffff' }}>
-        <h1>About Us</h1>
+      <div ref={aboutUsRef} style={{ position: 'relative', minWidth: '305px', backgroundColor: '#ffffff' }}>
+        <h1 className=''>About Us</h1>
         <p>We are 3 Holberton Uruguay Students and our Mentor!</p>
-        <div style={{ width: '100%', padding: '0', height: '1050px', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
-          <Card img={axel} />
-          <Card img={alexis} />
-          <Card img={santiago} />
-          <Card img={esteban} />
+        <div style={{ height: '100%', width: '100%', padding: '0', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+          <Card img={axel} Github={"https://github.com/axelpalwo"} Linkedin={"https://www.linkedin.com/in/axel-palombo/"} _name={"Axel Palombo"} title={"Product Manager - Backend Developer"}/>
+          <Card img={alexis} Github={"https://github.com/Magnusmajo"} Linkedin={"https://www.linkedin.com/in/magnusmajo/"} _name={"Alexis Rodriguez"} title={"Backend Developer - AI Specialist"}/>
+          <Card img={santiago} Github={"https://github.com/Swagtiago29"} Linkedin={"https://www.linkedin.com/in/santiago-ramos-6538092a2/"} _name={"Santiago Ramos"} title={"UX/UI - Frontend Developer"} />
+          <Card img={esteban} Github={"https://github.com/estebanpetrovich"} Linkedin={"https://www.linkedin.com/in/estebanpetrovich/"} _name={"Esteban Petrovich"} title={"Mentor - Technical Manager at Globant"}/>
         </div>
-        <FeedbackForm />
       </div>
+      <div style={{
+      width: '100%',
+      height: '6%', /* Adjust height based on how big you want the footer */
+      backgroundColor: 'rgb(68, 90, 161)', /* A dark background color for the footer */
+      color: '#fff', /* Text color */
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: '30px',
+    }}>
+      <p style={{ fontSize: '16px', textAlign: 'center' }}>
+        This is the end of the page. Thank you for visiting!
+      </p>
+    </div>
     </div>
   );
 };

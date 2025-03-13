@@ -31,7 +31,8 @@ const StyledWrapper = styled.div`
   @media (max-width: 768px) {
     button {
       font-size: 17px;
-      padding: 4px 5px;
+      padding: 0px 0px;
+      margin-right: 10px;
     }
   }
 
