@@ -6,7 +6,7 @@
   "homepage": "https://Iris-Team-hbtn.github.io/iris_frontend",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
