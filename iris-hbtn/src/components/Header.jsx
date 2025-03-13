@@ -105,27 +105,26 @@ export const Header = () => {
         }}>
           <video style={{ marginTop: '20px', marginBottom: '20px', width: '50%', minWidth: '350px' }} width="45%" controls poster="/assets/video_poster.jpg">
             <source src={vid1} type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
-          <p style={{ width: '40%', minWidth: '350px' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+          <p style={{ fontSize: '20px',marginLeft: '20px',marginRight: '20px', width: '40%', minWidth: '350px' }}>
+          Iris is equipped to provide detailed information about procedures and assist with scheduling appointments at the clinic. It has access to the availability for each day and is ready to offer any additional assistance you may need.
           </p>
         </div>
         {/* Second block */}
         <div style={{
-         backgroundColor: 'rgb(31, 55, 133)',
-         display: 'flex',
-         justifyContent: 'center',
-         borderRadius: '15px',
-         alignItems: 'center',
-         flexWrap: 'wrap',
-         width: '95%',
-         padding: '0px',
-         marginTop: '10px',
-         marginBottom: '10px'
+          backgroundColor: 'rgb(31, 55, 133)',
+          display: 'flex',
+          justifyContent: 'center',
+          borderRadius: '15px',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          width: '95%',
+          padding: '0px',
+          marginTop: '10px',
+          marginBottom: '10px'
         }}>
-          <p style={{ width: '40%', minWidth: '350px' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+          <p style={{ fontSize: '20px', marginTop: '20px', marginBottom: '20px', width: '40%', minWidth: '350px' }}>
+          If your inquiry extends beyond what Iris can assist with, it will quickly connect you to our knowledgeable staff, ensuring you receive precise assistance.
           </p>
           <video style={{ marginTop: '20px', marginBottom: '20px', minWidth: '350px' }} width="55%" controls poster="/assets/video_poster.jpg">
             <source src={vid2} type="video/mp4" />
@@ -148,37 +147,36 @@ export const Header = () => {
         }}>
           <video style={{ marginTop: '20px', marginBottom: '20px', minWidth: '350px' }} width="55%" controls poster="/assets/video_poster.jpg">
             <source src={vid3} type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
-          <p style={{width: '40%', minWidth: '350px' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+          <p style={{ fontSize: '20px',marginLeft: '20px',marginRight: '20px',width: '40%', minWidth: '350px' }}>
+          The &quot;Agendate&quot; button can also be utilized to schedule appointents manually by inputing your own data.
           </p>
         </div>
       </div>
       <div ref={aboutUsRef} style={{ position: 'relative', minWidth: '305px', backgroundColor: '#ffffff' }}>
-        <h1 className=''>About Us</h1>
+        <h1 style={{marginLeft :'20px'}} className='about-text' color='black'>About Us</h1>
         <p>We are 3 Holberton Uruguay Students and our Mentor!</p>
         <div style={{ height: '100%', width: '100%', padding: '0', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
-          <Card img={axel} Github={"https://github.com/axelpalwo"} Linkedin={"https://www.linkedin.com/in/axel-palombo/"} _name={"Axel Palombo"} title={"Product Manager - Backend Developer"}/>
-          <Card img={alexis} Github={"https://github.com/Magnusmajo"} Linkedin={"https://www.linkedin.com/in/magnusmajo/"} _name={"Alexis Rodriguez"} title={"Backend Developer - AI Specialist"}/>
+          <Card img={axel} Github={"https://github.com/axelpalwo"} Linkedin={"https://www.linkedin.com/in/axel-palombo/"} _name={"Axel Palombo"} title={"Product Manager - Backend Developer"} />
+          <Card img={alexis} Github={"https://github.com/Magnusmajo"} Linkedin={"https://www.linkedin.com/in/magnusmajo/"} _name={"Alexis Rodriguez"} title={"Backend Developer - AI Specialist"} />
           <Card img={santiago} Github={"https://github.com/Swagtiago29"} Linkedin={"https://www.linkedin.com/in/santiago-ramos-6538092a2/"} _name={"Santiago Ramos"} title={"UX/UI - Frontend Developer"} />
-          <Card img={esteban} Github={"https://github.com/estebanpetrovich"} Linkedin={"https://www.linkedin.com/in/estebanpetrovich/"} _name={"Esteban Petrovich"} title={"Mentor - Technical Manager at Globant"}/>
+          <Card img={esteban} Github={"https://github.com/estebanpetrovich"} Linkedin={"https://www.linkedin.com/in/estebanpetrovich/"} _name={"Esteban Petrovich"} title={"Mentor - Technical Manager at Globant"} />
         </div>
       </div>
       <div style={{
-      width: '100%',
-      height: '6%', /* Adjust height based on how big you want the footer */
-      backgroundColor: 'rgb(68, 90, 161)', /* A dark background color for the footer */
-      color: '#fff', /* Text color */
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginTop: '30px',
-    }}>
-      <p style={{ fontSize: '16px', textAlign: 'center' }}>
-        This is the end of the page. Thank you for visiting!
-      </p>
-    </div>
+        width: '100%',
+        height: '6%', /* Adjust height based on how big you want the footer */
+        backgroundColor: 'rgb(68, 90, 161)', /* A dark background color for the footer */
+        color: '#fff', /* Text color */
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '30px',
+      }}>
+        <p style={{ fontSize: '16px', textAlign: 'center' }}>
+          This is the end of the page. Thank you for visiting!
+        </p>
+      </div>
     </div>
   );
 };
