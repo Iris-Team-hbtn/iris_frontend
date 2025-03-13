@@ -40,7 +40,7 @@ const StyledWrapper = styled.div`
     content: '';
     width: 0%;
     height: 2px;
-    background: rgb(103, 171, 216);
+    background: rgb(255, 255, 255);
     display: block;
     transition: 0.5s;
   }

@@ -11,7 +11,7 @@ export const ChatWindow = ({ toggleCalendar, toggleChat, display, isOpen }) => {
   const [messages, setMessages] = useState([
     {
       user: 'Iris',
-      message: 'Hola! Soy Iris, una asistente virtual destinada a ayudarte.',
+      message: 'Soy Iris, una asistente virtual destinada a ayudarte.',
     },
   ]);
 
