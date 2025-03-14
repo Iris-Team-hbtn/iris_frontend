@@ -39,7 +39,7 @@ function Calendar() {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const API_URL_EVENTS = 'http://34.44.177.109:5000/iris/appointments';
+      const API_URL_EVENTS = 'https://34.44.177.109.nip.io:5000/iris/appointments';
       try {
         const response = await fetch(API_URL_EVENTS, {
           method: 'GET',

@@ -49,7 +49,7 @@ export const InputPopUp = ({ setShowPopUp, selectedEvent }) => {
       'email': email,
       'year': Number(selectedEvent.slice(0, 4)),
     };
-    const API_URL = 'http://34.44.177.109:5000/iris/appointments';
+    const API_URL = 'https://34.44.177.109.nip.io:5000/iris/appointments';
     console.log(formData);
 
     try {
